@@ -3,7 +3,8 @@
 
 typedef struct prf
 {
-	char *c;
+	char c;
+	void (*f)(va_list p);
 
 } pr;
 
