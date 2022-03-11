@@ -1,31 +1,78 @@
+#include <stdarg.h>
+#include <stdio.h>
+#include <stddef.h>
 #include "main.h"
-#include <unistd.h>
-
 /**
-* _printf - printf
-* @format: a list of types of arguments passed to the function
-*
-* Return: the number of characters printed
-*/
+ *
+ *
+ */
+void print_mod(va_list m)
+{
+	_putchar(37);
+	_putchar(10);
+}
+/**
+ *
+ *
+ *
+ */
+void print_string(va_list s)
+{
+}
+/**
+ *
+ *
+ *
+ */
+void print_char(va_list c)
+{
+	char aux;
 
+	/*printf("hola\n");*/
+	aux = va_arg(c, int);
+
+	_putchar(aux);
+	_putchar(10);
+}
+/**
+ *
+ *
+ *
+ */
 int _printf(const char *format, ...)
 {
 	va_list p;
-	unsigned int i;
+	char *tmp;
+	int i = 0, j = 0, k = 0;
 
-	pr pf_s[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_%},
+
+	pr pf_s[] =
+       	{
+		{'s', print_string},
+		{'c', print_char},
+		{'%', print_mod},
+		{'\0', NULL}
 	};
 
 	va_start(p, format);
 
 	for (i = 0; format[i]; i++)
-	{
-		if (format[i] != "%")
-			write(1, format[i], 1);
+
+	{	if (format[i] == '%')
+		{	
+			/*printf("hola estoy en el if\n");*/
+			i++;
+
+			for (j = 0; pf_s[j].c; j++)
+			{
+
+				/*printf("hola estoy en el segundo for\n");*/
+				if (format[i] == pf_s[j].c)
+					pf_s[j].f(p);
+			}
+		}
 		else
-			
+			_putchar(format[i]);
 	}
+
 }
