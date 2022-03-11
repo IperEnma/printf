@@ -1,4 +1,22 @@
-#include <stderg.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include <stddef.h>
+#include "main.h"
+/**
+ *
+ *
+ */
+void print_mod(va_list m)
+{
+}
+/**
+ *
+ *
+ *
+ */
+void print_string(va_list s)
+{
+}
 /**
  *
  *
@@ -8,9 +26,11 @@ void print_char(va_list c)
 {
 	char aux;
 
-	aux = va_arg(c, format);
+	/*printf("hola\n");*/
+	aux = va_arg(c, int);
 
-	putchar(aux);
+	_putchar(aux);
+	_putchar(10);
 }
 /**
  *
@@ -26,25 +46,31 @@ int _printf(const char *format, ...)
 
 	pr pf_s[] =
        	{
-		{"s", print_string}
-		{"c", print_char}
-		{"%", print_%}
+		{'s', print_string},
+		{'c', print_char},
+		{'%', print_mod},
+		{'\0', NULL}
 	};
 
-	va_start(p, input);
+	va_start(p, format);
 
-	for (i = 0; input[i]; i++)
+	for (i = 0; format[i]; i++)
 
-	{	if (input[i] == "%")
+	{	if (format[i] == '%')
 		{	
+			/*printf("hola estoy en el if\n");*/
 			i++;
 
-			for (j = 0; pf_s[j]; j = 0)
+			for (j = 0; pf_s[j].c; j++)
 			{
-				if (input[i] = pf_s[j].c)
+
+				/*printf("hola estoy en el segundo for\n");*/
+				if (format[i] == pf_s[j].c)
 					pf_s[j].f(p);
 			}
 		}
+		else
+			_putchar(format[i]);
 	}
 
 }
