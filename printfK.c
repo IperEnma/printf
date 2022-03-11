@@ -9,7 +9,6 @@
 void print_mod(va_list m)
 {
 	_putchar(37);
-	_putchar(10);
 }
 /**
  *
@@ -18,6 +17,13 @@ void print_mod(va_list m)
  */
 void print_string(va_list s)
 {
+	int i = 0;
+	char *aux = va_arg(s, char *);
+
+	for (i = 0; aux[i]; i++)
+	{
+		_putchar(aux[i]);
+	}
 }
 /**
  *
@@ -32,7 +38,6 @@ void print_char(va_list c)
 	aux = va_arg(c, int);
 
 	_putchar(aux);
-	_putchar(10);
 }
 /**
  *
