@@ -1,4 +1,6 @@
 #include <stdarg.h>
+#include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
 #include "main.h"
@@ -16,6 +18,14 @@ void print_mod(va_list m)
  */
 void print_string(va_list s)
 {
+	int i = 0;
+	char *aux = va_arg(s, char *);
+	
+	for (i = 0; aux[i]; i++)
+	{
+		_putchar(aux[i]);
+	}
+
 }
 /**
  *
@@ -30,7 +40,6 @@ void print_char(va_list c)
 	aux = va_arg(c, int);
 
 	_putchar(aux);
-	_putchar(10);
 }
 /**
  *
@@ -66,7 +75,10 @@ int _printf(const char *format, ...)
 
 				/*printf("hola estoy en el segundo for\n");*/
 				if (format[i] == pf_s[j].c)
+				{
 					pf_s[j].f(p);
+					break;
+				}
 			}
 		}
 		else
