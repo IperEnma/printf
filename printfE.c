@@ -10,7 +10,7 @@
  */
 void print_mod(va_list m)
 {
-	putchar(37);
+	_putchar(37);
 }
 /**
  *
