@@ -78,7 +78,6 @@ int _printf(const char *format, ...)
 				if (format[i] == pf_s[j].c)
 				{
 					pf_s[j].f(p);
-					break;
 				}
 			}
 		}
