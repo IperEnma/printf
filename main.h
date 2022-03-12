@@ -1,5 +1,7 @@
 #ifndef PRINTF
 #define PRINTF
+
+#include <stdarg.h>
 typedef struct prf
 {
 	char c;
