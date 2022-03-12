@@ -1,21 +1,64 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stddef.h>
+#include <stdlib.h>
 #include "main.h"
 /**
  *
  *
  */
-void print_mod(va_list m)
+int print_dec(va_list i)
+{
+	int b, c = 1, d = 1, n;
+
+	n = va_arg(i, int);
+	b = n;
+
+	if (n < 0)
+	{
+		_putchar(45);
+		while (b <= -10)
+		{
+			b /= 10;
+			c *= 10;
+			d++;
+		}
+		for (; c >= 1; c /= 10)
+		{
+			_putchar((((n / c) % 10) * -1) + 48);
+		}
+	}
+	else
+	{
+		while (b >= 10)
+		{
+			b /= 10;
+			c *= 10;
+			d++;
+		}
+		for (; c >= 1; c /= 10)
+		{
+			_putchar(((n / c) % 10) + 48);
+		}
+	}
+	return (d);
+}
+/*
+ *
+ *
+ *
+ */
+int print_mod(va_list m)
 {
 	_putchar(37);
+	return (1);
 }
 /**
  *
  *
  *
  */
-void print_string(va_list s)
+int print_string(va_list s)
 {
 	int i = 0;
 	char *aux = va_arg(s, char *);
@@ -24,13 +67,14 @@ void print_string(va_list s)
 	{
 		_putchar(aux[i]);
 	}
+	return (i);
 }
 /**
  *
  *
  *
  */
-void print_char(va_list c)
+int print_char(va_list c)
 {
 	char aux;
 
@@ -38,6 +82,7 @@ void print_char(va_list c)
 	aux = va_arg(c, int);
 
 	_putchar(aux);
+	return (1);
 }
 /**
  *
@@ -48,7 +93,7 @@ int _printf(const char *format, ...)
 {
 	va_list p;
 	char *tmp;
-	int i = 0, j = 0, k = 0;
+	int i = 0, j = 0, k = 0, ret = 0, fret = 0;
 
 
 	pr pf_s[] =
@@ -56,6 +101,8 @@ int _printf(const char *format, ...)
 		{'s', print_string},
 		{'c', print_char},
 		{'%', print_mod},
+		{'d', print_dec},
+		{'i', print_dec},
 		{'\0', NULL}
 	};
 
@@ -73,11 +120,18 @@ int _printf(const char *format, ...)
 
 				/*printf("hola estoy en el segundo for\n");*/
 				if (format[i] == pf_s[j].c)
-					pf_s[j].f(p);
+					fret += pf_s[j].f(p);
 			}
 		}
 		else
+		{
 			_putchar(format[i]);
+			ret++;
+		}
+
 	}
+	ret += fret;
+	return (ret);
+
 
 }
