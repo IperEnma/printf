@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  *
  *
@@ -8,5 +8,6 @@
 
 void main()
 {
-	_printf("hola %c adios %s hola %% adios\n", 'A', "Enma");
+/*	printf("%r");*/
+	_printf("hola %r adios %s hol %% adios\n", 'A', "hola");
 }
