@@ -10,7 +10,7 @@
  */
 void print_mod(va_list m)
 {
-	putchar('%');
+	_putchar(37);
 }
 /**
  *
@@ -81,8 +81,6 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			if (format[i] == '%')
-				i++;
 		}
 		else
 			_putchar(format[i]);
