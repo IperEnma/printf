@@ -5,7 +5,7 @@
 
 typedef struct hexa
 {
-	unsigned int i;
+	int i[0];
 	char c;
 } hex;
 
