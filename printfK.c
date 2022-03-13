@@ -7,9 +7,30 @@
  *
  *
  */
+int print_oct(va_list o)
+{
+	unsigned int octal[11];
+	unsigned int i, m, n;
+	int ret;
+
+	n = va_arg(o, unsigned int);
+	m = 1073741824;
+	octal[0] = n / m;
+	for (i = 1; i < 11; i++)
+	{
+		m /= 8;
+		octal[i] = (n / m) % 8;
+	}
+	for (i = 0, ret = 0; i < 11; i++)
+	{
+		_putchar(octal[i] + 48);
+		ret++;
+	}
+	return (ret);
+}
 int print_dec(va_list i)
 {
-	int b, c = 1, d = 1, n;
+	int b, c = 1, ret = 1, n;
 
 	n = va_arg(i, int);
 	b = n;
@@ -21,7 +42,7 @@ int print_dec(va_list i)
 		{
 			b /= 10;
 			c *= 10;
-			d++;
+			ret++;
 		}
 		for (; c >= 1; c /= 10)
 		{
@@ -34,14 +55,14 @@ int print_dec(va_list i)
 		{
 			b /= 10;
 			c *= 10;
-			d++;
+			ret++;
 		}
 		for (; c >= 1; c /= 10)
 		{
 			_putchar(((n / c) % 10) + 48);
 		}
 	}
-	return (d);
+	return (ret);
 }
 /*
  *
@@ -103,6 +124,7 @@ int _printf(const char *format, ...)
 		{'%', print_mod},
 		{'d', print_dec},
 		{'i', print_dec},
+		{'o', print_oct},
 		{'\0', NULL}
 	};
 
@@ -112,13 +134,10 @@ int _printf(const char *format, ...)
 
 	{	if (format[i] == '%')
 		{	
-			/*printf("hola estoy en el if\n");*/
 			i++;
 
 			for (j = 0; pf_s[j].c; j++)
 			{
-
-				/*printf("hola estoy en el segundo for\n");*/
 				if (format[i] == pf_s[j].c)
 					fret += pf_s[j].f(p);
 			}
