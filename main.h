@@ -31,5 +31,6 @@ int print_mod(va_list m);
 int print_string(va_list s);
 int print_char(va_list c);
 int print_unknow(va_list u);
+int print_bin(va_list b);
 int _putchar(char c);
 #endif
