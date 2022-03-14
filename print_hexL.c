@@ -38,7 +38,7 @@ int print_hexL(va_list he)
 		aux[i] = hexadecimal[t].c;
 	}
 	for (i = strlen(aux); i >= 0; i--)
-			_putchar(aux[i]);
+		_putchar(aux[i]);
 	free(aux);
 	return (strlen(aux - 1));
 }
