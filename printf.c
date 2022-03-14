@@ -21,11 +21,11 @@ int _printf(const char *format, ...)
 		{'n', print_unknow}, {'p', print_address}, {'\0', NULL}	};
 	va_start(p, format);
 
-	for (i = 0; format[i] != '\0' && format != NULL; i++)
+	for (i = 0; format[i]; i++)
 	{	flag = 0;
 		if (format[i] == '%')
 		{	i++;
-			for (j = 0; pf_s[j].c != '\0'; j++)
+			for (j = 0; pf_s[j].c; j++)
 			{
 				if (format[i] == pf_s[j].c)
 				{
