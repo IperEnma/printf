@@ -9,6 +9,7 @@
 int print_address(va_list a)
 {
 	unsigned int n = va_arg(a, unsigned int);
+	(void) n;
 
 	return (0);
 }
