@@ -28,13 +28,11 @@ int _printf(const char *format, ...)
 			if (format[i] == '\0')
 				return (-1);
 			for (j = 0; pf_s[j].c != '\0'; j++)
-			{
 				if (format[i] == pf_s[j].c)
 				{
 					fret += pf_s[j].f(p);
 					flag = 1;
 				}
-			}
 		}
 		else
 		{
@@ -42,7 +40,7 @@ int _printf(const char *format, ...)
 			ret++;
 			flag = 1;
 		}
-		if ( flag == 0)
+		if (flag == 0)
 		{
 			i--;
 			_putchar(37);
