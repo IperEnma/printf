@@ -12,7 +12,7 @@ void aux_mod(unsigned int b)
 		putchar(b % 2 + 48);
 	}
 	else
-		putchar(b % 48);
+		putchar(b % 2 + 48);
 }
 /**
  * print_bin - convert number to binary
