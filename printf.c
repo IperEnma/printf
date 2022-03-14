@@ -24,9 +24,9 @@ int _printf(const char *format, ...)
 	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{	flag = 0;
 		if (format[i] == '%')
-		{	i++;
-			if (format[i] == '\0')
+		{	if (format[i + 1] == '\0')
 				return (-1);
+			i++;
 			for (j = 0; pf_s[j].c != '\0'; j++)
 				if (format[i] == pf_s[j].c)
 				{

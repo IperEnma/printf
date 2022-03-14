@@ -6,8 +6,7 @@
  */
 int print_mod(va_list m)
 {
-	char a = va_arg(m, int);
-	(void) a;
+	(void) m;
 
 	_putchar(37);
 	return (1);
