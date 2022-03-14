@@ -28,5 +28,5 @@ int print_bin(va_list b)
 
 	for (i = 0; bin / 2; i++)
 		bin = bin / 2;
-	return(i);
+	return (i);
 }
