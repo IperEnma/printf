@@ -9,6 +9,33 @@
  *
  *
  */
+/**
+ *
+ *
+ *
+ */
+int print_address(va_list a)
+{
+	unsigned int n = va_arg(a, unsigned int);
+
+	printf("addres: %u\n", n);
+}
+/**
+ *
+ *
+ *
+ */
+int print_unknow(va_list u)
+{	char a = va_arg(u, int);
+
+	_putchar(37);
+	_putchar(a);
+}
+/**
+ *
+ *
+ *
+ */
 int print_hexU(va_list he)
 {
         int i = 0, t = 0;
@@ -310,6 +337,7 @@ int _printf(const char *format, ...)
 {
 	va_list p;
 	char *tmp;
+	int flag = 0;
 	int i = 0, j = 0, k = 0, ret = 0, fret = 0;
 
 
@@ -324,26 +352,25 @@ int _printf(const char *format, ...)
 		{'o',  print_octa},
 		{'x', print_hexL},
 		{'X', print_hexU},
-		/*{'p'},*/
+		{'n', print_unknow},
+		{'p', print_address},
 		{'\0', NULL}
 	};
 
 	va_start(p, format);
 
 	for (i = 0; format[i]; i++)
-
-	{	if (format[i] == '%')
+	{	
+		flag = 0;
+		if (format[i] == '%')
 		{	
-			/*printf("hola estoy en el if\n");*/
 			i++;
-
 			for (j = 0; pf_s[j].c; j++)
 			{
-
-				/*printf("hola estoy en el segundo for\n");*/
 				if (format[i] == pf_s[j].c)
 				{
 					fret += pf_s[j].f(p);
+					flag = 1;
 				}
 			}
 		}
@@ -351,6 +378,12 @@ int _printf(const char *format, ...)
 		{
 			_putchar(format[i]);
 			ret++;
+			flag = 1;
+		}
+		if (flag == 0)
+		{
+			i--;
+			_putchar(37);
 		}
 	}
 	ret += fret;
