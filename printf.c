@@ -12,19 +12,21 @@
 int _printf(const char *format, ...)
 {
 	va_list p;
-	int flag = 0;
-	int i = 0, j = 0, ret = 0, fret = 0;
+	int i = 0, j = 0, ret = 0, fret = 0, flag = 0;
 	pr pf_s[] = {
 		{'s', print_string}, {'c', print_char}, {'%', print_mod},
 		{'d', print_int}, {'i', print_int}, {'u', print_unsigned},
 		{'o',  print_octa}, {'x', print_hexL}, {'X', print_hexU},
 		{'n', print_unknow}, {'p', print_address}, {'\0', NULL}	};
 	va_start(p, format);
-
-	for (i = 0; format[i] != '\0' && format != NULL; i++)
+	if (format == NULL)
+		return (-1);
+	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{	flag = 0;
 		if (format[i] == '%')
 		{	i++;
+			if (format[i] == '\0')
+				return (-1);
 			for (j = 0; pf_s[j].c != '\0'; j++)
 			{
 				if (format[i] == pf_s[j].c)
@@ -40,10 +42,11 @@ int _printf(const char *format, ...)
 			ret++;
 			flag = 1;
 		}
-		if (flag == 0)
+		if ( flag == 0)
 		{
 			i--;
 			_putchar(37);
+			fret++;
 		}
 	}
 	ret += fret;
