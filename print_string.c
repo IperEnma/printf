@@ -13,5 +13,5 @@ int print_string(va_list s)
 	{
 		_putchar(aux[i]);
 	}
-	return (i - 1);
+	return (i);
 }
