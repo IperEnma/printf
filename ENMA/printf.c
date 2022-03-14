@@ -20,11 +20,12 @@ int _printf(const char *format, ...)
 		{'o',  print_octa}, {'x', print_hexL}, {'X', print_hexU},
 		{'n', print_unknow}, {'p', print_address}, {'\0', NULL}	};
 	va_start(p, format);
-	for (i = 0; format[i]; i++)
+
+	for (i = 0; format[i] != '\0' && format != NULL; i++)
 	{	flag = 0;
 		if (format[i] == '%')
 		{	i++;
-			for (j = 0; pf_s[j].c; j++)
+			for (j = 0; pf_s[j].c != '\0'; j++)
 			{
 				if (format[i] == pf_s[j].c)
 				{

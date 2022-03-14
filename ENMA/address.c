@@ -10,6 +10,5 @@ int print_address(va_list a)
 {
 	unsigned int n = va_arg(a, unsigned int);
 
-	printf("addres: %u\n", n);
 	return (0);
 }
