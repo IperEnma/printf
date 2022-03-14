@@ -71,13 +71,12 @@ int print_hexU(va_list he)
                         aux[i] = hexadecimal[t].c;
                 }
         }
-
-
         for (i = strlen(aux); i >= 0; i--)
         {
                 _putchar(aux[i]);
         }
 	free(aux);
+	return (strlen(aux - 1));
 }
 /**
  *
@@ -147,12 +146,12 @@ int print_hexL(va_list he)
 			aux[i] = hexadecimal[t].c;
 		}
 	}
-	
-
 	for (i = strlen(aux); i >= 0; i--)
 	{	
 		_putchar(aux[i]);
 	}
+	free(aux);
+	return (strlen(aux - 1));
 }
 /**
  *
@@ -161,6 +160,24 @@ int print_hexL(va_list he)
  */
 int print_octa(va_list o)
 {
+	unsigned int octal[11];
+        unsigned int i, m, n;
+        int ret;
+
+        n = va_arg(o, unsigned int);
+        m = 1073741824;
+        octal[0] = n / m;
+        for (i = 1; i < 11; i++)
+        {
+                m /= 8;
+                octal[i] = (n / m) % 8;
+        }
+        for (i = 0, ret = 0; i < 11; i++)
+        {
+                _putchar(octal[i] + 48);
+                ret++;
+        }
+        return (ret);
 }
 /**
  *
@@ -201,7 +218,7 @@ int print_unsigned(va_list u)
                 _putchar(aux[j] + '0');
         }
         free (aux);
-        return (strlen(aux) - 1);
+        return (strlen(aux - 1));
 }
 /**
  *
@@ -304,7 +321,7 @@ int _printf(const char *format, ...)
 		{'d', print_int},
 		{'i', print_int},
 		{'u', print_unsigned},
-		/*{'o'},*/
+		{'o',  print_octa},
 		{'x', print_hexL},
 		{'X', print_hexU},
 		/*{'p'},*/
