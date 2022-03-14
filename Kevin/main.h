@@ -29,4 +29,7 @@ int print_uns(va_list u);
 int print_oct(va_list o);
 int print_hex_l(va_list x);
 int print_hex_u(va_list X);
+int print_rev(va_list r);
+int print_rot13(va_list R);
+void print_str_rot13(char *s);
 #endif

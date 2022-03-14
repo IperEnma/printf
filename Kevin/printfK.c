@@ -21,6 +21,7 @@ int _printf(const char *format, ...)
 		{'s', print_str}, {'c', print_char}, {'%', print_mod},
 		{'d', print_int}, {'i', print_int}, {'u', print_uns},
 		{'o', print_oct}, {'x', print_hex_l}, {'X', print_hex_u},
+		{'r', print_rev}, {'R', print_rot13},
 		{'\0', NULL}
 	};
 
