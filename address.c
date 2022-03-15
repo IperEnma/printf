@@ -31,10 +31,20 @@ void aux_address(unsigned long int h)
  */
 int print_address(va_list a)
 {
+	int i = 0;
 	unsigned long int n = va_arg(a, unsigned long int);
+	
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 
 	_putchar('0');
 	_putchar('x');
 	aux_address(n);
-	return (0);
+
+	for(i = 1; n / 16; i++)
+		n = n / 16;
+	return (i);
 }
