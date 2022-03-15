@@ -21,6 +21,5 @@ int print_rev(va_list r)
 	{
 		_putchar(s[i]);
 	}
-	_putchar('\n');
 	return (ret);
 }
