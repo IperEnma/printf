@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, ret = 0, fret = 0, flag = 0;
 	pr pf_s[] = {
 		{'s', print_string}, {'c', print_char}, {'%', print_mod},
-		{'d', print_int}, {'i', print_int}, {'u', print_unsigned},
+		{'d', print_int}, {'i', print_int}, {'u', print_unsigned}, {'r', print_rev},
 		{'o',  print_octa}, {'x', print_hexL}, {'X', print_hexU}, {'R', print_rot13},
 		{'n', print_unknow}, {'p', print_address}, {'b', print_bin}, {'\0', NULL}};
 	va_start(p, format);

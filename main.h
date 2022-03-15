@@ -42,5 +42,4 @@ int print_bin(va_list b);
 int print_rev(va_list r);
 int print_rot13(va_list R);
 int _putchar(char c);
-int print_rot(va_list r);
 #endif
