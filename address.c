@@ -34,9 +34,9 @@ int print_address(va_list a)
 	int i = 0;
 	char *s = "(nil)";
 	unsigned long int n = va_arg(a, unsigned long int);
-	
+
 	if (n == 0)
-	{	
+	{
 		for (i = 0; s[i]; i++)
 			_putchar(s[i]);
 	}
@@ -46,7 +46,7 @@ int print_address(va_list a)
 		_putchar('x');
 		aux_address(n);
 
-		for(i = 1; n / 16; i++)
+		for (i = 1; n / 16; i++)
 			n = n / 16;
 		i = i + 2;
 	}

@@ -11,8 +11,7 @@ int aux_ascii(unsigned int h)
 {
 	int i = 0;
 
-	do
-	{
+	do {
 		if (h / 16)
 		{
 			if ((h % 16) < 10)
@@ -29,8 +28,7 @@ int aux_ascii(unsigned int h)
 		}
 		h = h / 16;
 		i++;
-	}
-	while(h % 16);
+	} while (h % 16);
 	return (i);
 }
 /**
@@ -61,7 +59,7 @@ int print_ascii(va_list ascii)
 			_putchar(92);
 			_putchar('x');
 			_putchar('0');
-			ret += aux_ascii(as[i]);	
+			ret += aux_ascii(as[i]);
 
 		}
 		else
