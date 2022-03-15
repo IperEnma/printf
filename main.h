@@ -41,5 +41,6 @@ int print_char(va_list c);
 int print_unknow(va_list u);
 int print_bin(va_list b);
 int print_rev(va_list r);
+int print_rot13(va_list R);
 int _putchar(char c);
 #endif
