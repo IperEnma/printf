@@ -23,6 +23,7 @@ int print_unsigned(va_list u)
 		aux[j] = c % 10;
 		c = c / 10;
 	}
+	aux[j] = '\0';
 	for (j = (strlen(aux) - 1); j >= 0; j--)
 	{
 		_putchar(aux[j] + '0');
