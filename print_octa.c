@@ -1,27 +1,32 @@
 #include "main.h"
 /**
- * print_octa - decimal to octa
- * @o: valist
- * Return:  ret
+ * aux_mod - helper to print
+ * @b: number to convert
+ * Return: void
+ */
+void aux_octa(unsigned int b)
+{
+        if (b / 8)
+        {
+                aux_octa(b / 8);
+                _putchar(b % 8 + 48);
+        }
+        else
+                _putchar(b % 8 + 48);
+}
+/**
+ * print_bin - convert number to binary
+ * @b: valist
+ * Return: i
  */
 int print_octa(va_list o)
 {
-	unsigned int octal[11];
-	unsigned int i, m, n;
-	int ret;
+        int i = 1;
+        unsigned int oct = va_arg(o, unsigned int);
 
-	n = va_arg(o, unsigned int);
-	m = 1073741824;
-	octal[0] = n / m;
-	for (i = 1; i < 11; i++)
-	{
-		m /= 8;
-		octal[i] = (n / m) % 8;
-	}
-	for (i = 0, ret = 0; i < 11; i++)
-	{
-		_putchar(octal[i] + 48);
-		ret++;
-	}
-	return (ret);
+        aux_octa(oct);
+
+        for (i = 1; oct / 8; i++)
+                oct = oct / 8;
+        return (i);
 }
