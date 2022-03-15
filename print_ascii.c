@@ -61,7 +61,7 @@ int print_ascii(va_list ascii)
 			_putchar(92);
 			_putchar('x');
 			_putchar('0');
-			ret += aux_ascii(as[i]);
+			ret += aux_ascii(as[i]);	
 
 		}
 		else
