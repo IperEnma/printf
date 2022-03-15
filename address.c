@@ -39,15 +39,16 @@ int print_address(va_list a)
 	{	
 		for (i = 0; s[i]; i++)
 			_putchar(s[i]);
-		return (-1);
 	}
+	else
+	{
+		_putchar('0');
+		_putchar('x');
+		aux_address(n);
 
-	_putchar('0');
-	_putchar('x');
-	aux_address(n);
-
-	for(i = 1; n / 16; i++)
-		n = n / 16;
-	i = i + 2;
+		for(i = 1; n / 16; i++)
+			n = n / 16;
+		i = i + 2;
+	}
 	return (i);
 }
