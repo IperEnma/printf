@@ -27,6 +27,6 @@ int print_unsigned(va_list u)
 	aux_unsig(uns);
 
 	for (i = 1; uns / 10; i++)
-		uns = uns / 2;
+		uns = uns / 10;
 	return (i);
 }
