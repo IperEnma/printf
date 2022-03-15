@@ -14,12 +14,12 @@ int print_rot13(va_list R)
 
 	for (i = 0; s[i]; i++)
 	{
-			if ((s[i] >= 'a' && s[i] <= 'm') || (s[i] >= 'A' && s[i] <= 'M'))
-				_putchar(s[i] + 13);
-			else if ((s[i] >= 'n' && s[i] <= 'z') || (s[i] >= 'N' && s[i] <= 'Z'))
-				_putchar(s[i] - 13);
-			else
-				_putchar(s[i]);
+		if ((s[i] >= 'a' && s[i] <= 'm') || (s[i] >= 'A' && s[i] <= 'M'))
+			_putchar(s[i] + 13);
+		else if ((s[i] >= 'n' && s[i] <= 'z') || (s[i] >= 'N' && s[i] <= 'Z'))
+			_putchar(s[i] - 13);
+		else
+			_putchar(s[i]);
 	}
 	return (i);
 }
