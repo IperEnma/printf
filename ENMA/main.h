@@ -7,20 +7,13 @@
 #include <stddef.h>
 #include "main.h"
 #include <stdarg.h>
-/**
- * hexa - struct
- * @i: integer
- * @c: characters
- */
-typedef struct rot13
+
+typedef struct hexa
 {
+	unsigned int i;
 	char c;
-} rt;
-/**
- * prf -prf
- * @c: characters
- * @f: pointer to function
- */
+} hex;
+
 typedef struct prf
 {
 	char c;
@@ -38,9 +31,5 @@ int print_mod(va_list m);
 int print_string(va_list s);
 int print_char(va_list c);
 int print_unknow(va_list u);
-int print_bin(va_list b);
-int print_rev(va_list r);
-int print_rot13(va_list R);
 int _putchar(char c);
-int print_rot(va_list r);
 #endif
