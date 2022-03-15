@@ -11,11 +11,8 @@ int aux_ascii(unsigned int h)
 {
 	int i = 0;
 
-	if (h <= 15)
-	{
-		_putchar('0');
-		i++;
-	}
+	putchar('0');
+	i++;
 	if (h / 16)
 	{
 		aux_ascii(h / 16);
