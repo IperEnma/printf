@@ -1,32 +1,37 @@
 #include "main.h"
 /**
+ * aux_unsig - function aux
+ * @u: unsigned
+ * Return: void
+ */
+void aux_unsig(unsigned int u)
+{
+	if (u / 10)
+	{
+		aux_unsig(u / 10);
+		_putchar(u % 10 + 48);
+	}
+	else
+		_putchar(u + 48);
+}
+/**
  * print_unsigned - print unsigned
  * @u: valist
  * Return: aux
  */
 int print_unsigned(va_list u)
 {
-	unsigned int c = va_arg(u, unsigned int);
-	int j = 1;
-	unsigned int w = 0;
-	char *aux;
+	int i = 0;
+	unsigned int uns = va_arg(u, unsigned int);
 
-	w = c;
-	while (w >= 10)
+	if (uns == 0)
 	{
-		w = w / 10;
-		j++;
+		_putchar('0');
+		return (1);
 	}
-	aux = malloc(j);
-	for (j = 0; c != 0; j++)
-	{
-		aux[j] = c % 10;
-		c = c / 10;
-	}
-	for (j = (strlen(aux) - 1); j >= 0; j--)
-	{
-		_putchar(aux[j] + '0');
-	}
-	free(aux);
-	return (strlen(aux - 1));
+	aux_unsig(uns);
+
+	for (i = 1; uns / 10; i++)
+		uns = uns / 10;
+	return (i);
 }
