@@ -32,11 +32,13 @@ void aux_address(unsigned long int h)
 int print_address(va_list a)
 {
 	int i = 0;
+	char *s = "(nil)";
 	unsigned long int n = va_arg(a, unsigned long int);
 	
 	if (n == 0)
-	{
-		_putchar('0');
+	{	
+		for (i = 0; s[i]; i++)
+			_putchar(s[i]);
 		return (1);
 	}
 
