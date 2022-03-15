@@ -40,5 +40,6 @@ int print_string(va_list s);
 int print_char(va_list c);
 int print_unknow(va_list u);
 int print_bin(va_list b);
+int print_rev(va_list r);
 int _putchar(char c);
 #endif
