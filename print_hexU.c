@@ -18,7 +18,10 @@ void aux_hex(unsigned int h)
 			_putchar(h % 16 + 55);
 	}
 	else
-		_putchar(h % 16 + 48);
+		if ((h % 16) < 10)
+			_putchar(h % 16 + 48);
+		else
+			_putchar(h % 16 + 55);
 }
 /**
  * print_hexU - convert decimal to hexadecimal
@@ -32,7 +35,7 @@ int print_hexU(va_list he)
 
 	if (hex == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		return (1);
 	}
 

@@ -19,7 +19,10 @@ void aux_hexL(unsigned int h)
 			_putchar(h % 16 + 87);
 	}
 	else
-		_putchar(h % 16 + 48);
+		if ((h % 16) < 10)
+			_putchar(h % 16 + 48);
+		else
+			_putchar(h % 16 + 87);
 }
 /**
  * print_hexL - convert decimal to hexadecimal
