@@ -17,7 +17,7 @@ int print_unsigned(va_list u)
 		w = w / 10;
 		j++;
 	}
-	aux = malloc(j);
+	aux = malloc(j + 1);
 	for (j = 0; c != 0; j++)
 	{
 		aux[j] = c % 10;
