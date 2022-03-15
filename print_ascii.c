@@ -46,7 +46,7 @@ int print_ascii(va_list ascii)
 	char *as = va_arg(ascii, char *);
 	char *fail = "(nil)";
 
-	if (as == NULL)
+	if (!as)
 	{
 		for (i = 0; fail[i]; i++)
 		{
