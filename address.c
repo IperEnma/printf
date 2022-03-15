@@ -39,7 +39,7 @@ int print_address(va_list a)
 	{	
 		for (i = 0; s[i]; i++)
 			_putchar(s[i]);
-		return (1);
+		return (6);
 	}
 
 	_putchar('0');
