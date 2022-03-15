@@ -7,13 +7,21 @@
 #include <stddef.h>
 #include "main.h"
 #include <stdarg.h>
-
+/**
+ * hexa - struct
+ * @i: integer
+ * @c: characters
+ */
 typedef struct hexa
 {
 	unsigned int i;
 	char c;
 } hex;
-
+/**
+ * prf -prf
+ * @c: characters
+ * @f: pointer to function
+ */
 typedef struct prf
 {
 	char c;
