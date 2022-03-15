@@ -44,6 +44,17 @@ int print_ascii(va_list ascii)
 {
 	int i = 0, ret = 0;
 	char *as = va_arg(ascii, char *);
+	char *fail = "(nil)";
+
+	if (as == NULL)
+	{
+		for (i = 0; fail[i]; i++)
+		{
+			putchar(fail[i]);
+		}
+		return (i);
+
+	}
 
 	for (i = 0; as[i]; i++)
 	{
@@ -51,8 +62,7 @@ int print_ascii(va_list ascii)
 		{
 			_putchar(92);
 			_putchar('x');
-			ret = ret + 2;
-			ret = aux_ascii(as[i]);
+			ret += aux_ascii(as[i]);
 
 		}
 		else
@@ -60,5 +70,6 @@ int print_ascii(va_list ascii)
 			_putchar(as[i]);
 		}
 	}
+	ret += 2;
 	return (ret);
 }
