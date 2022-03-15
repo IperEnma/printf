@@ -24,6 +24,12 @@ int print_octa(va_list o)
 	int i = 1;
 	unsigned int oct = va_arg(o, unsigned int);
 
+	if (oct == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
 	aux_octa(oct);
 
 	for (i = 1; oct / 8; i++)

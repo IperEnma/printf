@@ -30,6 +30,12 @@ int print_hexU(va_list he)
 	int i = 0;
 	unsigned int hex = va_arg(he, unsigned int);
 
+	if (hex == 0)
+	{
+		putchar('0');
+		return (1);
+	}
+
 	aux_hex(hex);
 	for (i = 1; hex / 16; i++)
 		hex = hex / 16;

@@ -23,7 +23,12 @@ int print_unsigned(va_list u)
 {
 	int i = 0;
 	unsigned int uns = va_arg(u, unsigned int);
-
+	
+	if (uns == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	aux_unsig(uns);
 
 	for (i = 1; uns / 10; i++)
