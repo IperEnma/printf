@@ -12,11 +12,10 @@
  * @i: integer
  * @c: characters
  */
-typedef struct hexa
+typedef struct rot13
 {
-	unsigned int i;
 	char c;
-} hex;
+} rt;
 /**
  * prf -prf
  * @c: characters
@@ -41,4 +40,5 @@ int print_char(va_list c);
 int print_unknow(va_list u);
 int print_bin(va_list b);
 int _putchar(char c);
+int print_rot(va_list r);
 #endif

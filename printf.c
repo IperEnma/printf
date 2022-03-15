@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	pr pf_s[] = {
 		{'s', print_string}, {'c', print_char}, {'%', print_mod},
 		{'d', print_int}, {'i', print_int}, {'u', print_unsigned},
-		{'o',  print_octa}, {'x', print_hexL}, {'X', print_hexU},
+		{'o',  print_octa}, {'x', print_hexL}, {'X', print_hexU}, {'R', print_rot},
 		{'n', print_unknow}, {'p', print_address}, {'b', print_bin}, {'\0', NULL}};
 	va_start(p, format);
 	if (format == NULL)
