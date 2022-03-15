@@ -58,7 +58,7 @@ int print_ascii(va_list ascii)
 
 	for (i = 0; as[i]; i++)
 	{
-		if ((as[i] >= 0 && as[i] < 32) || as[i] >= 127)
+		if ((as[i] > 0 && as[i] < 32) || as[i] >= 127)
 		{
 			_putchar(92);
 			_putchar('x');
