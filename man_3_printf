@@ -1,20 +1,76 @@
 _PRINTF(3)
 
 NAME
-        _printf - formats and prints data
+	printf - formats and prints data
 
 SYNOPSIS
-        _printf FORMAT [ARGUMENT]...
+	_printf FORMAT [ARGUMENT]...
 
 DESCRIPTION
-        prints arguments of the given format
+	_printf prints arguments of the given format
 
-        FORMAT controls the output
+	FORMAT controls the output
 
-        %% print a '%'
+	Conversion specifiers
+	The character % is followed by % or more of the following conversion specifiers:
+
+	% - prints a '%'
+
+	c - prints a character
+
+	s - prints a string
+
+	i - prints an integer
+
+	d - prints an integer in base 10
+
+	u - prints an unsigned integer
+
+	b - prints an unsigned integer in binary
+
+	o - prints an unsigned integer in base 8
+
+	x - prints an unsigned integer in base 16 with the letters in lowercase
+
+	X - prints an unsigned integer in base 16 with the letters in uppercase
+
+	p - prints the address of the argument
+
+	r - prints a string in reverse
+
+	R - prints a string encoded in rot13
+
+	S - prints a string but non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+
+OPTIONS
+	-h, --help
+	Displays a help message.
+
+	-v, --version
+	isplays the software version.
 
 EXAMPLES
-        _print("Hola mundo %d", n);
+	printf("%%");
+	To print a %.
+
+	printf("%s", "Hola mundo\n");
+	To print "Hola mundo".
+
+	_printf("%r", "\nodnum aloH");
+	To print "Hola mundo" using %r.
+
+	_printf("%d", n);
+	To print an integer in base 10.
+
+EXIT VALUES
+	-1
+	Error
+
+Other number
+	The amount of characters printed
+
+BUGS
+	We hope doesn't have any bug
 
 AUTHORS
-        Made by IperEnma and KevinFRX
+	KevinFRX IperEnma
