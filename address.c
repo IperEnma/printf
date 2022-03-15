@@ -46,5 +46,6 @@ int print_address(va_list a)
 
 	for(i = 1; n / 16; i++)
 		n = n / 16;
+	i = i + 2;
 	return (i);
 }
