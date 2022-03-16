@@ -9,28 +9,22 @@
  */
 int aux_ascii(unsigned int h)
 {
-	int i = 0;
+        if (h / 16)
+        {
+                aux_ascii(h / 16);
 
-	do {
-		if (h / 16)
-		{
-			if ((h % 16) < 10)
-				_putchar(h % 16 + 48);
-			else
-				_putchar(h % 16 + 55);
-		}
-		else
-		{
-			if ((h % 16) < 10)
-				_putchar(h % 16 + 48);
-			else
-				_putchar(h % 16 + 55);
-		}
-		h = h / 16;
-		i++;
-	} while (h % 16);
-	return (i);
+                if ((h % 16) < 10)
+                        _putchar(h % 16 + 48);
+                else
+                        _putchar(h % 16 + 55);
+        }
+        else
+                if ((h % 16) < 10)
+                        _putchar(h % 16 + 48);
+                else
+                        _putchar(h % 16 + 55);
 }
+
 /**
  * print_ascii - convert char no printable
  * @ascii: parameter
