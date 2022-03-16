@@ -7,7 +7,7 @@
  * @h: integer
  * Return: void
  */
-int aux_ascii(unsigned int h)
+void aux_ascii(unsigned int h)
 {
         if (h / 16)
         {
