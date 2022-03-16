@@ -2,13 +2,16 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 /**
  * aux_ascii - function aux
  * @h: integer
  * Return: void
  */
-void aux_ascii(unsigned int h)
+void aux_ascii(int h)
 {
+
+	printf("\n\nentre valiendo: %u\n\n", h);
         if (h / 16)
         {
                 aux_ascii(h / 16);
@@ -48,12 +51,12 @@ int print_ascii(va_list ascii)
 
 	for (i = 0; as[i]; i++)
 	{
-		if ((as[i] < 32) || as[i] >= 127)
+		if ((as[i] < 32) || as[i] >= 127 && as[i] <= 255)
 		{
 			_putchar(92);
 			_putchar('x');
 			_putchar('0');
-			ret += aux_ascii(as[i]);
+			aux_ascii(as[i]);
 
 		}
 		else
