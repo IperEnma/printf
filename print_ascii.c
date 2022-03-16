@@ -8,22 +8,22 @@
  * @h: integer
  * Return: void
  */
-static int aux_ascii(char h)
+static int aux_ascii(char c)
 {
-        if (h / 16)
-        {
-                aux_ascii(h / 16);
+	int count;
+	char diff = 'A' - ':';
+	char d[2];
 
-                if ((h % 16) < 10)
-                        _putchar(h % 16 + 48);
-                else
-                        _putchar(h % 16 + 55);
-        }
-        else
-                if ((h % 16) < 10)
-                        _putchar(h % 16 + 48);
-                else
-                        _putchar(h % 16 + 55);
+	d[0] = c / 16;
+	d[1] = c % 16;
+	for (count = 0; count < 2; count++)
+	{
+		if (d[count] >= 10)
+			_putchar('0' + diff + d[count]);
+		else
+			_putchar('0' + d[count]);
+	}
+	return (count);
 }
 
 /**
@@ -35,33 +35,24 @@ int print_ascii(va_list ascii)
 {
 	int i = 0, ret = 0;
 	char *as = va_arg(ascii, char *);
-	char *fail = "(nil)";
 
-	if (!as)
-	{
-		for (i = 0; fail[i]; i++)
-		{
-			putchar(fail[i]);
-		}
-		return (i);
 
-	}
-
+	if (as == NULL)
+		as = "(null)";
 	for (i = 0; as[i]; i++)
 	{
-		if ((as[i] > 0) && (as[i] < 32) || (as[i] >= 127))
+		if (as[i] < 32 || as[i] >= 127)
 		{
-			_putchar(92);
+			_putchar('\\');
 			_putchar('x');
-			_putchar('0');
-			aux_ascii(as[i]);
-
+			ret += 2;
+			ret += aux_ascii(as[i]);
 		}
 		else
-		{	ret++;
+		{
 			_putchar(as[i]);
+			ret++;
 		}
 	}
-	ret += 3;
-	return (ret);
+	return (ret++);
 }
