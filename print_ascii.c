@@ -8,22 +8,31 @@
  * @h: integer
  * Return: void
  */
-static int aux_ascii(char c)
+static int aux_ascii(char h)
 {
-	int count;
-	char diff = 'A' - ':';
-	char d[2];
+	int i = 1;
+        
+	do {
+		if (h / 16)
+        	{	
+			i++;
+			h = h / 16;
+                	if ((h % 16) < 10)
+                        	_putchar(h % 16 + 48);
+                	else
+                        	_putchar(h % 16 + 55);
+        	}
+        	else
+		{
+			i++;
+                	if ((h % 16) < 10)
+                        	_putchar(h % 16 + 48);
+                	else
+                        	_putchar(h % 16 + 55);
+		}
+	} while (h / 16);
 
-	d[0] = c / 16;
-	d[1] = c % 16;
-	for (count = 0; count < 2; count++)
-	{
-		if (d[count] >= 10)
-			_putchar('0' + diff + d[count]);
-		else
-			_putchar('0' + d[count]);
-	}
-	return (count);
+	return (i);
 }
 
 /**
@@ -54,5 +63,7 @@ int print_ascii(va_list ascii)
 			ret++;
 		}
 	}
+
+	ret = ret;
 	return (ret++);
 }
