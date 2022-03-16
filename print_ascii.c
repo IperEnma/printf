@@ -8,10 +8,8 @@
  * @h: integer
  * Return: void
  */
-void aux_ascii(int h)
+static int aux_ascii(char h)
 {
-
-	printf("\n\nentre valiendo: %u\n\n", h);
         if (h / 16)
         {
                 aux_ascii(h / 16);
@@ -51,7 +49,7 @@ int print_ascii(va_list ascii)
 
 	for (i = 0; as[i]; i++)
 	{
-		if ((as[i] < 32) || as[i] >= 127 && as[i] <= 255)
+		if ((as[i] > 0) && (as[i] < 32) || (as[i] >= 127))
 		{
 			_putchar(92);
 			_putchar('x');
