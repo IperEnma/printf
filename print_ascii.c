@@ -4,66 +4,44 @@
 #include <string.h>
 #include <stdio.h>
 /**
- * aux_ascii - function aux
- * @h: integer
- * Return: void
- */
-static int aux_ascii(char h)
+ *
+ *
+ *
+ *
+int aux_ascii(char c)
 {
-	int i = 1;
-        
-	do {
-		if (h / 16)
-        	{	
-			i++;
-			h = h / 16;
-                	if ((h % 16) < 10)
-                        	_putchar(h % 16 + 48);
-                	else
-                        	_putchar(h % 16 + 55);
-        	}
-        	else
-		{
-			i++;
-                	if ((h % 16) < 10)
-                        	_putchar(h % 16 + 48);
-                	else
-                        	_putchar(h % 16 + 55);
-		}
-	} while (h / 16);
+	putchar(c);
 
-	return (i);
 }
-
-/**
+ *
  * print_ascii - convert char no printable
  * @ascii: parameter
  * Return: ret
  */
-int print_ascii(va_list ascii)
+int print_ascii(va_list s)
 {
 	int i = 0, ret = 0;
-	char *as = va_arg(ascii, char *);
-
+	char *as = va_arg(s, char *);
+	
 
 	if (as == NULL)
 		as = "(null)";
 	for (i = 0; as[i]; i++)
 	{
-		if (as[i] < 32 || as[i] >= 127)
-		{
-			_putchar('\\');
-			_putchar('x');
-			ret += 2;
-			ret += aux_ascii(as[i]);
+		if  ((as[i] > 0 && as[i] < 32) || as[i] >= 127)
+		{	
+			_putchar(92);
+			_putchar('x');	
+			if (as[i] <  16)
+			{
+				_putchar('0');
+				_printf("%X", as[i]);
+			}
+			else
+				_printf("%X", as[i]);
 		}
 		else
-		{
 			_putchar(as[i]);
-			ret++;
-		}
 	}
-
-	ret = ret;
 	return (ret++);
 }
